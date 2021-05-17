@@ -2,6 +2,7 @@ package xyz.itwill.lang;
 
 import java.util.Scanner;
 
+
 //키보드로 연산식을 입력받아 연산결과를 출력하는 프로그램을 작성하세요.
 //ex) 연산식 입력 >> 20 + 10
 //    [결과]30
@@ -10,74 +11,71 @@ import java.util.Scanner;
 // => 입력 연산식에 공백이 입력 가능 하도록 처리
 public class ConsoleCalculateApp {
 	public static void main(String[] args) {
-		final int OUT_OF_NUM = -1;
-		String[] operators = { "*", "/", "+", "-" };
-		int answer = 0;
-
+		//int answer = 0;
+		System.out.println( "수식을 입력 하세요. ");
+		
 		Scanner scanner = new Scanner(System.in);
-		String input = scanner.nextLine().trim();
-		input = input.replace(" ", "");
-		String nowOperator = null;
+		String input = scanner.nextLine().replace(" ", "");
 
-		//ArrayList<String> operatorList = new ArrayList<String>();
-		
-		int operatorIndex = OUT_OF_NUM;
-		for (String operator : operators) {
-			if (input.indexOf(operator) != OUT_OF_NUM) {
-				operatorIndex = input.indexOf(operator);
-				nowOperator = operator;
-			}
-		}
-		
-		//예외처리
-		if (operatorIndex == -1) {
-			System.out.println("연산식이 잘못되었습니다.");
-			scanner.close();
-			System.exit(0);
-		}
-		
-		String[] calcArray = new String[2];
-		
-		switch(nowOperator) {
-		case "+":
-			calcArray = input.split("\\+");
-			break;
-		case "-":
-			calcArray = input.split("\\-");
-			break;
-		case "*":
-			calcArray = input.split("\\*");
-			break;
-		case "/":
-			calcArray = input.split("\\/");
-			break;
-		}
-		
-		//calcArray = input.split(nowOperator);
-		
-		int calcData[] = new int[calcArray.length];
-		
-		for(int i=0; i<calcArray.length; ++i) {
-			calcData[i] = Integer.parseInt(calcArray[i]); 
-		}
-		
-		
-		switch(nowOperator) {
-		case "+":
-			answer = calcData[0] + calcData[1];
-			break;
-		case "-":
-			answer = calcData[0] - calcData[1];
-			break;
-		case "*":
-			answer = calcData[0] * calcData[1];
-			break;
-		case "/":
-			answer = calcData[0] / calcData[1];
-			break;
-		}
+		MyCalculate calculator = new MyCalculate(input);
 
-		System.out.println(answer);
+		calculator.printState();
+
 		scanner.close();
+
+//		int operatorIndex = OUT_OF_RANGE;
+//		for (String operator : operators) {
+//			if (input.indexOf(operator) != OUT_OF_RANGE) {
+//				operatorIndex = input.indexOf(operator);
+//			}
+//		}
+//		
+//		//예외처리
+//		if (operatorIndex == -1) {
+//			System.out.println("연산식이 잘못되었습니다.");
+//			scanner.close();
+//			System.exit(0);
+//		}
+//		
+//		String[] calcArray = new String[2];
+//		
+//		switch(nowOperator) {
+//		case "+":
+//			calcArray = input.split("\\+");
+//			break;
+//		case "-":
+//			calcArray = input.split("\\-");
+//			break;
+//		case "*":
+//			calcArray = input.split("\\*");
+//			break;
+//		case "/":
+//			calcArray = input.split("\\/");
+//			break;
+//		}
+//		
+//		//calcArray = input.split(nowOperator);
+//		
+//		int calcData[] = new int[calcArray.length];
+//		
+//		for(int i=0; i<calcArray.length; ++i) {
+//			calcData[i] = Integer.parseInt(calcArray[i]); 
+//		}
+//		
+//		switch(nowOperator) {
+//		case "+":
+//			answer = calcData[0] + calcData[1];
+//			break;
+//		case "-":
+//			answer = calcData[0] - calcData[1];
+//			break;
+//		case "*":
+//			answer = calcData[0] * calcData[1];
+//			break;
+//		case "/":
+//			answer = calcData[0] / calcData[1];
+//			break;
+//		}
+//		System.out.println(answer);
 	}
 }

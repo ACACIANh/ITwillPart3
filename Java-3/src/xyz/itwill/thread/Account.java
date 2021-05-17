@@ -5,7 +5,7 @@ public class Account {
 	private int balance;
 	
 	public Account() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 
 	public Account(int balance) {

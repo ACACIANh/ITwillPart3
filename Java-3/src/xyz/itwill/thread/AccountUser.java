@@ -6,7 +6,7 @@ public class AccountUser extends Thread {
 	private String userName;//사용자명
 	
 	public AccountUser() {
-		// TODO Auto-generated constructor stub
+		// 
 	}
 
 	public AccountUser(Account account, String userName) {

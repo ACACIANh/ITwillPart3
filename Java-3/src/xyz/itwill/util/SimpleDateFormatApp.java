@@ -37,7 +37,7 @@ public class SimpleDateFormatApp {
 			Date wantDate=dateFormat.parse(want);
 			System.out.println("wantDate = "+wantDate);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
+			// 
 			e.printStackTrace();
 		}
 	}
